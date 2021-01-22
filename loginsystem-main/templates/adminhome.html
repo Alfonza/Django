@@ -1,0 +1,23 @@
+{%load static%}
+<html>
+    <script src="{%static 'js/work.js'%}"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <table>
+            <tr><th><h2>Users</h2></th><th><h2>Password</h2></th><th><h2>Email</h2></th><th><h2>Phone</h2></th></tr>
+            
+                {% for user in users %}
+                <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                </tr>
+                {% endfor %}
+        </table><br><br>
+        <button id='go' onclick=backhm()> Go Back</button>
+        
+        
+    </body>
+    
+</html>

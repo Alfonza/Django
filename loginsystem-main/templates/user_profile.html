@@ -1,0 +1,33 @@
+{%load static%}
+<html>
+    <script src="{%static 'js/work.js'%}"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <h1>Hello, {{user.name}}</h1>
+        <div id="div1">
+            
+        <div>
+            <input type='hidden' id='email' name='email' value='{{user.email}}' />
+            <h5>Username : &nbsp;&nbsp;<input id='username' name='username' value='{{user.name}}'>
+                <br><button id="update_username" name='update_username' onclick=send_username() type='submit'>update</button>
+            </h5>
+        </div>
+        <div>
+            <h5>Phone : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id='phone' name='phone' value='{{user.phone}}'>
+               <br> <button  id="update_number" onclick=send_phone() name='phone' type='submit' value='phone'>update</button>
+            </h5>
+        </div>
+        <div>
+            <h5>Password : <input name='password' id='password' value='{{user.password}}'>
+                <br><button  id="update_password" onclick=send_password() name='password' type='submit' value='password'>update</button>
+            </h5>
+        </div>
+        <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id='logout' onclick=logout() name=logout> LOGOUT</button>
+        <button id='home' onclick=backhm() name=home> HOME</button>
+        <script>
+            email='{{user.email}}'
+        </script>
+    </div>
+    </body>
+</html>
