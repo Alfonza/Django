@@ -1,0 +1,32 @@
+{%load static%}
+<html>
+    <script src="{%static 'js/work.js'%}"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <h1>Hello, {{user.1}}</h1>
+        <div id="div1">
+        
+        
+            <input type='hidden' id='email' name='email' value='{{user.email}}' />
+            <h5>Username : &nbsp;&nbsp;<input id='username' name='username' value='{{user.1}}'>
+                            </h5>
+        
+        
+            <h5>Phone : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input id='phone' name='phone' value='{{user.4}}'>
+            </h5>
+        
+        
+            <h5>Password : <input name='password' id='password' value='{{user.2}}'>
+            </h5>
+        
+        <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id='update' onclick="send_update()" name="update" type="submit">UPDATE</button>
+        <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id='logout' onclick=logout() name=logout> LOGOUT</button>
+        <button id='home' onclick=backhm() name=home> HOME</button>
+        <script>
+            email='{{user.email}}'
+        </script>
+    </div>
+    </body>
+</html>

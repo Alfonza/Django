@@ -1,0 +1,29 @@
+{%load static%}
+<html>
+    <script src="{%static 'js/work.js'%}"></script>
+    <body>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        
+    
+        <div id="box3">
+            
+        <form action='login'><div id="hed"><h3>  LOGIN YOUR ACCOUNT </h3></div>
+            
+            <div id="data"><input name='username' id='username' type='text'placeholder='username' required><br><br><br>
+            <input name='password' id='password' type='password' placeholder='password' required><br><br><br><br>
+            <a href="forgot.html">Forgot Password!!!</a><br><br>
+            <button id="but1"  type="submit"  name="login">LOGIN</button><br><br>
+            
+            <a href="user_signup">Create New Account</a><br><br>
+            <h4>{{data}}</h4>
+            
+        </div>
+        </form>
+        <button id='home' onclick=backhm() name=home> BACK</button>
+         </div>
+        
+    </body>
+   
+   
+   
+</html>

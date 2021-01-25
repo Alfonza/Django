@@ -1,0 +1,160 @@
+body{
+
+    position: relative;
+    background-color: cornsilk;
+}
+#main{
+    position: relative;
+    background-color: rgb(56, 56, 138);
+    text-align: center;
+   
+    height: 150px;
+    width: 100%;
+}
+h1{
+    position: relative;
+    top: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+
+#admin_user{
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+#box2{
+    background-color: rgb(248, 248, 248);
+    text-align: center;
+    
+    width: 500px;
+    position: relative;
+    left: 370px;
+    height: 500px;
+
+}
+#ad_data{
+    position: relative;
+    top: 63px;
+}
+#adminname,#ad_password{
+    height: 60px;
+    width: 443px;
+    border-radius: 20px;
+
+    
+}
+::placeholder { 
+    text-align: center;
+    
+    opacity: 1; 
+  }
+ 
+  #go{
+      position: relative;
+      left: 300px;
+    height: 43px;
+    width: 70px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+  }
+  
+  button{
+    height: 43px;
+    width: 443px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+
+  }
+ 
+  #hed{
+      background-color: rgb(117, 14, 201);
+      height: 90px;
+      
+  }
+  h3{
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+      position: relative;
+      top: 27px;
+  }
+  
+#box1{
+    background-color: rgb(248, 248, 248);
+    text-align: center;
+    
+    width: 500px;
+    position: relative;
+    left: 370px;
+    height: 400px;
+
+}
+#box3{
+    background-color: rgb(248, 248, 248);
+    text-align: center;
+    top: 10px;
+    width: 500px;
+    position: relative;
+    left: 370px;
+    height: 700px;
+
+}
+#data{
+    position: relative;
+    top: 10px;
+}
+
+
+table,th,td{
+    
+    border: 1px solid black;
+    height: 50px;
+    text-align: center;
+}
+tr{
+    background-color: rgb(88, 88, 173);
+}
+tr:hover {
+    background-color:#8993a8;
+}
+table{
+    position: relative;
+    left: 300px;
+    top: 30px;
+    width: 70%;
+}
+ 
+#box2{
+    background-color: rgb(248, 248, 248);
+    text-align: center;
+    
+    width: 500px;
+    position: relative;
+    left: 370px;
+    height: 550px;
+
+}
+#signup_data{
+    position: relative;
+    top: 10px;
+}
+#username,#password,#phone,#email{
+    position: relative;
+    top: 31px;
+    height: 50px;
+    width: 443px;
+    border-radius: 20px;
+
+    
+}
+::placeholder { 
+    text-align: center;
+    
+    opacity: 1; 
+  }
+ 
+
+  
+  
