@@ -1,0 +1,5 @@
+autocreate function when view
+autocreate app
+auto error completion
+regex error matching
+csrf validation

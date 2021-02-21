@@ -1,0 +1,121 @@
+
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <style>
+      body{
+          background-color: black;
+      }
+    #main{
+        position: relative;
+            
+        text-align: center;
+       
+        height: 150px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #container{
+        position: relative;
+            top: -60px;
+            text-align: center;
+            background-color: rgb(237 245 249);
+            width: 369px;
+            left: 502px;
+            height: 400px;
+            box-shadow: 10px 10px 5px grey;
+    }
+    
+    img{
+        position: relative;
+        width: 100%;
+        height: 411%;
+    }
+    h3{
+        background-color:#6389f1;
+        height: 50px;
+        text-align: center;
+        font-style: inherit;
+        opacity: 0.8;
+    }
+    #content{
+        position: relative;
+        
+        text-align: center;
+        background-color:#c2e0f1;
+        width: 369px;
+        left: 502px;
+        height: 410px;
+        box-shadow: 5px 10px #888888;
+
+    }
+    #form-data{
+        position: relative;
+        top: 30px;
+    }
+    #username,#password{
+        position: relative;
+        height: 50px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 10px 10px 5px grey;
+    }
+    button{
+        position: relative;
+        background-color: black;
+        color: white;
+        width: 300px;
+        border-radius: 20px;
+        height: 40px;
+        box-shadow: 10px 10px 5px grey;
+    }
+    button:hover {
+        background-color: #2269ee; /* Green */
+        color: rgb(15, 6, 6);
+      }
+      input:hover{
+        border-color: rgb(226, 69, 69);
+    }
+</style>
+  
+</head>
+<body>
+    <div id="main">
+        <img src="{% static 'img/119300130-medical-healthcare-concept-doctor-in-hospital-with-digital-medical-icons-graphic-banner-showing-symb.jpg' %}" alt="My image2"> 
+    </div>
+<div id="container">
+ 
+    <form action='/adm_login' ><div id="hed"><h3> <br> LOGIN ADMIN ACCOUNT </h3></div>
+            
+        <div id="data"><input name='username' id='username' type='text'placeholder='username' required><br><br><br>
+        <input name='password' id='password' type='password' placeholder='password' required><br><br>
+        
+        
+        <button id="patientbut1"  type="submit"  name="login">LOGIN</button><br><br>
+       
+        
+        
+    </div>
+    <h4>{{data}}</h4>
+  </form>
+  <button id='home' onclick=backhm() name=home> BACK</button>
+</div>
+</div>
+
+</body>
+<script>
+    function backhm(){
+        window.location.href='back'
+    }
+</script>
+</html>
+
+
+
+

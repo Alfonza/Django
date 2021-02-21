@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <table>
+            <tr><th><h2>ID</h2></th><th><h2>FEEDBACK</h2></th></tr>
+            
+                {% for feedback in feedbacks %}
+                <tr>
+                    {% for data in  feedback %}
+                    <td>{{data}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+        </table><br><br>
+    </body>
+</html>

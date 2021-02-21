@@ -5,7 +5,13 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <h1>Hello, {{user.1}}</h1>
         <div id="div1">
-        
+            <form method = "post" enctype="multipart/form-data"> 
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile">
+                {% csrf_token %} 
+                {{ form.as_p }} 
+                <button id='upload' onclick="upload_img()" name="upload" type="submit">Upload</button> 
+            </form> 
         
             <input type='hidden' id='email' name='email' value='{{user.email}}' />
             <h5>Username : &nbsp;&nbsp;<input id='username' name='username' value='{{user.1}}'>

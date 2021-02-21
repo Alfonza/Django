@@ -1,0 +1,175 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  background-color: black;
+}
+#main{
+    position: relative;
+        
+    text-align: center;
+   
+    height: 150px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#viewmsg{
+    position: relative;
+        top: -150px;
+        text-align: center;
+        
+        width: 369px;
+        left: 120px;
+        height: 400px;
+        
+}
+
+img{
+    position: relative;
+    width: 100%;
+    height: 411%;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+#typemsg{
+    width: 640px;
+    height: 30px;
+    text-align: center;
+}
+#butmsgsend{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+#listName{
+    position: relative;
+    height: 497px;
+    width: 40%;
+    left: -115px;
+    top: 40px;
+   
+
+}
+#msgbody{
+    top: -510px;
+    height: 615px;
+    width: 193%;
+    left: 301px;
+    position: relative;
+}
+#sendMsg{
+    position: relative;
+    left: 2px;
+}
+#msgdisplay{
+  border-color: transparent;
+  background-color: transparent;
+  color: black;
+  width: 150px;
+  height: 50px;
+}
+#msgdisplay:hover{
+  color: rgb(55, 55, 230);
+  font-weight: bolder;
+}
+</style>
+</head>
+<body>
+    <div id="main">
+        <img src="{% static 'img/abstract-blur-interior-clinic-hospital-background-abstract-blur-interior-clinic-hospital-background-198300672.jpg' %}" alt="My image2"> 
+
+    </div>
+    <div id="viewmsg">
+    <div id="listName">
+      <button id="msgdisplay">Ram</button>
+   
+    <hr>
+    <button id="msgdisplay">Naiju</button>
+    <hr>
+    <button id="msgdisplay">Anu</button>
+    <hr>
+    <button id="msgdisplay">Ashwin</button>
+    <hr>
+    <button id="msgdisplay">Ajith</button>
+    <hr>
+</div>
+
+<div id="msgbody">
+    <h2>Dr.Name</h2>
+<div class="container">
+  
+  <p>Hello. How are you today?</p>
+  <span class="time-right">11:00</span>
+</div>
+
+<div class="container darker">
+  
+  <p>Hey! I'm fine. Thanks for asking!</p>
+  <span class="time-left">11:01</span>
+</div>
+
+<div class="container">
+  
+  <p>Sweet! So, what do you wanna do today?</p>
+  <span class="time-right">11:02</span>
+</div>
+
+<div class="container darker">
+  
+  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+  <span class="time-left">11:05</span>
+</div>
+<div id="sendMsg">
+<input id="typemsg" type="text" placeholder="type here.....">
+<button onclick="sendMsg()"id="butmsgsend">SEND</button>
+</div>
+</div>
+</div>
+</body>
+</html>

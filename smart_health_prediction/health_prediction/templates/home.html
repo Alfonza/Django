@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<title>Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{
+        background-color: black;
+    }
+      
+    #main{
+        position: relative;
+            
+        text-align: center;
+       
+        height: 150px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    img{
+        position: relative;
+        width: 100%;
+        height: 411%;
+    }
+    a{
+        
+        color: rgb(231, 19, 19);
+        border-radius: 5px;
+        height: 30px;
+        width: 60px;
+        font-weight: 30px;
+    }
+    a:hover{
+        color: rgb(29, 23, 23);
+        font-weight: 30px;
+    }
+        
+        #adm{
+            position: relative;
+            left: 800px;
+            top: -120px;
+        }
+        #doctor{
+            position: relative;
+            left: 1200px;
+            top: -140px;
+            
+        }
+        #patient{
+            position: relative;
+            left: 1000px;
+            top: -130px;
+
+        }
+        
+        
+    
+</style>
+<body>
+    <div id="main">
+        <img src="{% static 'img/Teeth-in-a-day.jpg' %}" alt="My image">
+    </div>
+    <div id="admin_user">
+        <div>
+            
+        </div>
+        <div id="adm">
+            <a href="admin">ADMIN</a>
+        </div>
+        <div id="patient">
+            <a href="patient">PATIENT</a>
+        </div>
+        <div id="doctor">
+            <a href="doctor">DOCTOR</a>
+        </div>
+    </div>
+   
+    
+        
+   
+
+</body>
+</html>

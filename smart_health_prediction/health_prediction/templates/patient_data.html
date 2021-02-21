@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <table id="tableI">
+            <tr><th><h2>ID</h2></th><th><h2>NAME</h2></th><th><h2>EMAIL</h2></th><th><h2>PASSWORD</h2></th><th><h2>SCORE</h2></th><th><h2>STATUS</h2></th><th></th></tr>
+            
+                {% for patient in patients %}
+                <tr>
+                    {% for data in patient %}
+                    <td>{{data}}</td>
+                    
+                    {% endfor %}
+                    <th><button onclick="delete_row()">DELETE</button></th>
+                </tr>
+                {% endfor %}
+        </table><br><br>
+    </body>
+    <script>
+        function delete_row(){
+            table = document. getElementById("tableId"); 
+            row = table. rows[index]; 
+            console. log(row.ID);
+        }
+    </script>
+</html>

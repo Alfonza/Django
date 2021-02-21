@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <title>ADMIN</title>
+    <style>
+        #main{
+            position: relative;
+                
+            text-align: center;
+           
+            height: 150px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        img{
+            position: relative;
+            width: 100%;
+            height: 411%;
+        }
+        #listtable{
+            position: relative;
+                top: -100px;
+                text-align: center;
+                
+                width: 169px;
+                left: 10px;
+                height: 400px;
+        }
+        #backtohome{
+            position: relative;
+    top: -180px;
+    left: 1150px;
+    background-color: #f1f5f5;
+    border-color: #edf3f2;
+    width: 80px;
+    height: 30px;
+        }
+       
+    </style>
+    <body >
+        <div  id="main">
+        <img src="{% static 'img/canadian-specialist-hospital_52d7a0cc13bd9.jpg' %}" alt="My image2"> 
+        </div>
+        
+        <div id="listtable">
+       <a href="add">ADD DOC</a><br><br>
+       <a href="docdata">DOCTOR DATA</a><br><br>
+       <a href="patientdata">PATIENT DATA</a><br><br>
+       <a href="feedback">FEEDBACK</a><br><br>
+       <button id='backtohome' onclick=backhm() name=home> HOME</button>
+    </div>
+    
+       
+    </body>
+    <script>
+        function backhm(){
+            window.location.href='back'
+        }
+    </script>
+</html>

@@ -1,0 +1,146 @@
+{%load static%}
+<html>
+    <style>
+        body{
+            background-color: black;
+        }
+        #main{
+            position: relative;
+                
+            text-align: center;
+           
+            height: 150px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #div1{
+            position: relative;
+                top: -150px;
+                text-align: center;
+                
+                width: 369px;
+                left: 120px;
+                height: 400px;
+                
+        }
+        
+        img{
+            position: relative;
+            width: 100%;
+            height: 411%;
+        }
+        #username,#password,#phone{
+            position: relative;
+            height: 50px;
+            width: 300px;
+            border:0px;
+            border-bottom-width: 2px;
+            text-align: center;
+            background-color: transparent;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+           
+            
+        }
+        input{
+            outline: 0px solid transparent;
+        }
+
+        
+        h5{
+            position: relative;
+            font-size: 20px;
+            left: -238px;
+            top: 65px;
+        }
+        h1{
+            position: relative;
+            left: -220px;
+        }
+        #chat,#logout,#home{
+            position: relative;
+            top: -620px;
+            left: 800px;
+            background-color: rgb(250, 248, 248);
+            color:rgb(235, 37, 37);
+            border-color: transparent;
+            height: 30px;
+            width: 80px;
+            box-shadow: 10px 10px 5px grey;
+        
+
+        }
+        
+        
+        #update{
+            position: relative;
+            background-color: black;
+            color: white;
+            width: 200px;
+            height: 40px;
+            border-radius: 10px;
+            top: -10px;
+
+        }
+        #update:hover{
+            background-color: white;
+            color: #000;
+            font-weight: bold;
+        }
+        #username:hover,#password:hover,#phone:hover{
+            background-color: wheat;
+        }
+        #chat:hover,#logout:hover,#home:hover{
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+    
+    <body>
+        <div id="main">
+            <img src="{% static 'img/canadian-specialist-hospital_52d7a0cc13bd9.jpg' %}" alt="My image2"> 
+        </div>
+        
+        <div id="div1">
+           
+            <input type='hidden' id='email' name='email'  />
+            <h5>Username : </h5><input id='username' name='username' value="Nancy">
+                           
+        
+        
+            <h5>Phone : </h5><input id='phone' name='phone' value="7867545343" >
+            
+        
+        
+            <h5>Password : </h5><input name='password' id='password' value="565" >
+            
+        <h5>Status :</h5>consult doctor
+        <br><br><br>
+        <button id='update' onclick="send_update()" name="update" type="submit">UPDATE</button>
+        <br><br><br>
+        <button id="chat" onclick="msg()" name="chat">MESSAGE</button>&nbsp;&nbsp;
+        <button id='logout' onclick=logout() name=logout> LOGOUT</button>&nbsp;&nbsp;
+        <button id='home' onclick=backhm() name=home> HOME</button>
+        <script>
+           
+            
+            function send_update(){
+                patientname=document.getElementById('username').value 
+                phone=document.getElementById('phone').value 
+                password=document.getElementById('password').value
+            }
+            function msg(){
+                window.location.href='msgP'
+            
+            }
+            function backhm(){
+                window.location.href='back'
+            }
+        </script>
+    </div>
+    </body>
+</html>

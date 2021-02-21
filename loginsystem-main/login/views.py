@@ -1,9 +1,11 @@
-from django.shortcuts import render
+import sys
+sys.path.append(r'C:\Users\best\Anaconda3\Lib\site-packages')
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from login.models import userdata
 from django.db import connection
-import sys
-sys.path.append(r'C:\Users\best\Anaconda3\Lib\site-packages')
+import re 
+#from .forms import *
 import mysql.connector
 
 def home(request):
@@ -15,6 +17,7 @@ def admin(request):
 def back(request):
     return render(request,'welcome.html') 
 def user(request):
+    
     if request.session.has_key('email'):
         email=request.session['email']
         connection=mysql.connector.connect(host='localhost',user='root',password='',database='testdb')
@@ -47,7 +50,7 @@ def adm_login(request):
         #for user in users:
         cursor.close()  
 
-        return render(request,'adminhome.html',{"data":'login successfull',"users":users})
+       return render(request,'adminhome.html',{"data":'login successfull',"users":users} )
      
 def user_signup(request):
     return render(request,'user_signup.html')
@@ -55,13 +58,14 @@ def user_signup(request):
 
     
 def validate(request):
-    username=request.GET['username']
-    passw=request.GET['password']
-    #print(username,passw)
-    #connection=mysql.connector.connect(host='localhost',user='root',password='',database='testdb')
+    username=request.POST['username']
+    passw=request.POST['password']
+   
+    connection=mysql.connector.connect(host='localhost',user='root',password='',database='testdb')
     cursor=connection.cursor()
-    cursor.execute("SELECT * FROM `login_userdata` WHERE name='"+username+"' and password="+passw)
+    cursor.execute("SELECT * FROM `login_userdata` WHERE name='"+username+"' and password='"+passw+"'")
     user=cursor.fetchone()
+    print("SELECT * FROM `login_userdata` WHERE name='"+username+"' and password='"+passw+"'")
     #print(user)
     #user=userdata.objects.filter(name=username,password=passw)
     '''if c.fetchone() is not None:
@@ -96,17 +100,53 @@ def update_profile(request):
     return render(request,'user_profile.html',{"user":user})
     
 def signup(request):
-    username=request.GET['username']
-    password=request.GET['password']
-    email=request.GET['email']
-    phone=request.GET['phone']
-    #connection=mysql.connector.connect(host='localhost',user='root',password='',database='testdb')
-    cursor=connection.cursor()
-    cursor.execute("INSERT INTO `login_userdata`( `name`, `password`, `email`, `phone`) VALUES ('"+username+"',"+password+",'"+email+"',"+phone+")")
+    username=request.POST['username']
+    password=request.POST['password']
+    email=request.POST['email']
+    phone=request.POST['phone']
+    pro_image=request.POST['pro_image']
+    print(phone)
+    #regex = r'^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$' 
+
+    if(username=="" or password=="" or phone=="" or email==""):
+        
+        return render(request,'user_signup.html',{'data':'please enter correct data'})
     
-    #entry=userdata(name=username,password=password,email=email,phone=phone)
-    #entry.save()
-    cursor.close()
-    return render(request,'user.html',{"data":'signup successfull'})
+    else:
+        connection=mysql.connector.connect(host='localhost',user='root',password='',database='testdb')
+        cursor=connection.cursor()
+        cursor.execute("INSERT INTO `login_userdata`( `name`, `password`, `email`, `phone`,`pro_image`) VALUES ('"+username+"',"+password+",'"+email+"',"+phone+","+pro_image+")")
+        cursor.close()
+        return render(request,'user.html',{"data":'signup successfull'})
+        
+    
+        
     
 
+  
+'''def image_view(request): 
+  
+    if request.method == 'POST': 
+        form = LoginForm(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return redirect('success') 
+    else: 
+        form = LoginForm() 
+    return render(request, 'user_profile.html', {'form' : form}) 
+  
+  
+def success(request): 
+    return HttpResponse('successfully uploaded') 
+
+
+
+def display_images(request): 
+  
+    if request.method == 'GET': 
+  
+        # getting all the objects of hotel. 
+        Hotels =userdata.objects.all()  
+        return render((request, 'user_profile.html', 
+                     {'hotel_images' : Hotels})) '''

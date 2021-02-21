@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <style>
+        #main{
+            position: relative;
+                
+            text-align: center;
+           
+            height: 150px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #patientSignupPage{
+            position: relative;
+                top: -600px;
+                text-align: center;
+                background-color: rgb(237 245 249);
+                width: 369px;
+                left: 762px;
+                height: 500px;
+                box-shadow: 10px 10px 5px grey;
+        }
+        button{
+            position: relative;
+            background-color: black;
+            color: white;
+            width: 300px;
+            border-radius: 20px;
+            height: 40px;
+            box-shadow: 10px 10px 5px grey;
+        }
+        button:hover {
+            background-color: #2269ee; /* Green */
+            color: rgb(15, 6, 6);
+          }
+        img{
+            position: relative;
+            width: 100%;
+            height: 411%;
+        }
+        h3{
+            background-color:#4d80ec;
+            height: 50px;
+            text-align: center;
+            font-style: inherit;
+            opacity: 0.8;
+        }
+        #username,#password,#email,#phone{
+            position: relative;
+            height: 50px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 10px 10px 5px grey;
+        }
+        #username:hover,#password:hover,#phone:hover,#email:hover{
+            border-color: red;
+        }
+    </style>
+   
+    <body>
+       <div id="main">
+        <img src="{% static 'img/7616ce55552d7a8548c7ed5b53aae6f0.jpg' %}" alt="My image2"> 
+     
+        <div id="patientSignupPage">
+        <form  action="newAccount" method = "post" enctype="multipart/form-data"><div id="hed"><h3> <br> SIGNUP YOUR ACCOUNT </h3></div>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div id="signup_data">
+                
+                <input name='username' id='username' type='text'placeholder='username' required><br><br><br>
+                <input name='password' id='password' type='password' placeholder='password' required><br><br><br>
+                <input name='email' id='email' type='email' placeholder='email' required><br><br><br>
+                <input name='phone' id='phone' type='tel'  placeholder='phone' required><br><br>
+                
+                <button  type="submit" id='signup'>SIGN UP</button>
+                
+            </div>
+        </form>
+        
+        
+            
+         </div>
+         
+        
+        </div>  
+        
+    </body>
+    <script>
+       
+    </script>
+    
+</html>

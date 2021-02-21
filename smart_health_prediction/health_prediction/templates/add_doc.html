@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="name" name="name" placeholder="name" type="text"><br><br>
+        <input id="spcl" name="spcl" placeholder="specialization" type="text"><br><br>
+        <input id="phone" name="phone" placeholder="phone" type="tel"><br><br>
+        <input id="email" name="email" placeholder="email" type="email"><br><br>
+        <input id="password" name="password" placeholder="password" type="password"><br><br>
+        <button onclick="add_doc()">ADD</button>
+       
+    {{data}}
+    </body>
+    <script>
+        function add_doc(){
+            name=document.getElementById('name').value
+            special=document.getElementById('spcl').value
+            phone=document.getElementById('phone').value
+            email=document.getElementById('email').value
+            password=document.getElementById('password').value
+            //console.log('docadd?name='+name+'&spcl='+splc+'&phone='+phone+'&email='+email+'&password='+password)
+            window.location.href='docadd?name='+name+'&special='+special+'&phone='+phone+'&email='+email+'&password='+password;
+        }
+    </script>
+</html>
