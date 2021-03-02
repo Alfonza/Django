@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        
+        body{
+            background-color:#5cdb95;
+        }
+        #question{
+    
+            position: relative;
+            background-color: #05386b;
+            text-align: center;
+            color: whitesmoke;
+            top: 60px;
+            width: 500px;
+            left: 450px;
+            height: 600px;
+            box-shadow: 10px 10px 5px grey;
+        }
+        #q1,#q2,#q3,#q4,#q5,#q6,#q7,#q8,#q9,#q10{
+            position: relative;
+            height: 30px;
+            width: 400px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        
+        
+        button{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            height: 30px;
+            width: 400px;
+        }
+    </style>
+
+<body>
+    <div id="question">
+        <br>
+            <input id="q1" placeholder="Do you have temparature?"><br><br>
+            <input id="q2" placeholder="Do you have headache?"><br><br>
+            <input id="q3" placeholder="Do you have cold?"><br><br>
+            <input id="q4" placeholder="Did you suffer any weaknes in body?"><br><br>
+            <input id="q5" placeholder="ajshik"><br><br>
+            <input id="q6" placeholder="Do you have any difficulty breathing?"><br><br>
+            <input id="q7" placeholder="do you suffer this symptom for more than 10 days?"><br><br>
+            <input id="q8" placeholder="Do you have temparature?"><br><br>
+            <input id="q9" placeholder="Do you have temparature?"><br><br>
+            <input id="q10" placeholder="Do you have temparature?"><br><br>
+            <button onclick="questions()">Submit</button>
+
+    </div>
+</body>
+<script>
+    email='{{email}}'
+    
+    function questions(){
+     
+        marks=0
+        var i;
+        for (i = 1; i < 5; i++) {
+            
+            val='q'+i.toString()
+            //console.log(document.getElementById('q1').value)
+            // console.log(val)
+            if ((document.getElementById(val).value)=="yes"){
+                marks=marks+5
+
+            }
+
+        }
+        for(i=5;i<8;i++){
+            val='q'+i.toString()
+            if ((document.getElementById(val).value)=="yes"){
+                marks=marks+10
+            }
+        }
+        for(i=8;i<10;i++){
+            val='q'+i.toString()
+            if ((document.getElementById(val).value)=="yes"){
+                marks=marks+15
+            }
+        }
+
+        if ((document.getElementById('q10').value)=="yes"){
+            marks=marks+20
+        } 
+        if(marks>60){
+            status='immediatly consult doctor'
+        }
+        else if(30<marks && marks<=60){
+            status=' consult doctor'
+        }
+        else
+        {
+            status='Take rest'
+        }
+        
+        window.location.href='updatestatuspatient?status='+status+'&email='+email;
+
+    }
+</script>
+</html>

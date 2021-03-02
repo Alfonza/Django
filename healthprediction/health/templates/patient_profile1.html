@@ -60,10 +60,10 @@
             position: relative;
             left: -220px;
         }
-        #chat,#logout,#home{
+        #chat,#logout,#home,#feedback{
             position: relative;
             top: -620px;
-            left: 800px;
+            left: 700px;
             background-color: rgb(250, 248, 248);
             color:rgb(235, 37, 37);
             border-color: transparent;
@@ -73,7 +73,18 @@
         
 
         }
-        
+        #qstn{
+            position: relative;
+            top: -650px;
+            left: 930px;
+            background-color: rgb(250, 248, 248);
+            color:rgb(235, 37, 37);
+            border-color: transparent;
+            height: 30px;
+            width: 80px;
+            box-shadow: 10px 10px 5px grey;
+        }
+       
         
         #update{
             position: relative;
@@ -85,6 +96,7 @@
             top: -10px;
 
         }
+       
         #update:hover{
             background-color: white;
             color: #000;
@@ -93,7 +105,7 @@
         #username:hover,#password:hover,#phone:hover{
             background-color: wheat;
         }
-        #chat:hover,#logout:hover,#home:hover{
+        #chat:hover,#logout:hover,#home:hover,#qstn:hover,#feedback:hover{
             background-color: red;
             color: white;
         }
@@ -128,26 +140,12 @@
         <button id="chat" onclick="msg()" name="chat">MESSAGE</button>&nbsp;&nbsp;
         <button id='logout' onclick=logout() name=logout> LOGOUT</button>&nbsp;&nbsp;
         <button id='home' onclick=backhm() name=home> HOME</button>
-        <div id="question">
-            <form >
-                <input id="1" placeholder="Do you have temparature?">
-                <input id="2" placeholder="Do you have headache?">
-                <input id="3" placeholder="Do you have cold?">
-                <input id="4" placeholder="Did you suffer any weaknes in body?">
-                <input id="5" placeholder="">
-                <input id="6" placeholder="Do you have any difficulty breathing?">
-                <input id="7" placeholder="do you suffer this symptom for more than 10 days?">
-                <input id="8" placeholder="Do you have temparature?">
-                <input id="9" placeholder="Do you have temparature?">
-                <input id="10" placeholder="Do you have temparature?">
-                <button onclick="questions()">Submit</button>
-
-        
-
-            </form>
-        </div>
+        <button id="feedback" onclick="feedback()">FEEDBACK</button>
+        <button id="qstn" onclick="qstn()">QUESTION</button>
+       
         <script>
            email='{{patient.2}}'
+           
             
             function send_update(){
                 patientname=document.getElementById('username').value 
@@ -165,51 +163,13 @@
             function logout(){
                 window.location.href='patientlogout'
             }
-            function question(){
-                q1=document.getElementById('1').value
-                q2=document.getElementById('2').value
-                q3=document.getElementById('3').value
-                q4=document.getElementById('4').value
-                q5=document.getElementById('5').value
-                q6=document.getElementById('6').value
-                q7=document.getElementById('7').value
-                q8=document.getElementById('8').value
-                q9=document.getElementById('9').value
-                q10=document.getElementById('10').value
-                marks=0
-                var i;
-                for (i = 1; i < 5; i++) {
-                    if ((document.getElementById(i),value)=="yes"){
-                        marks=marks+5
-
-                    }
-        
-                }
-                for(i=5;i<8;i++){
-                    if ((document.getElementById(i),value)=="yes"){
-                        marks=marks+10
-                    }
-                }
-                for(i=8;i<9;i++){
-                    if ((document.getElementById(i),value)=="yes"){
-                        marks=marks+15
-                    }
-                }
-
-                if ((document.getElementById('10'),value)=="yes"){
-                    marks=marks+20
-                } 
-                if(marks>60){
-                    status='immediatly consult doctor'
-                }
-                else if(30<marks<=60){
-                    status=' consult doctor'
-                }
-                else{
-                    status='Take rest'
-                }
-                window.location.href='updatestatuspatient?status='+status;
-
+            
+            function feedback(){
+                
+                window.location.href='patientfeedback'
+            }
+            function qstn(){
+                window.location.href='questionanswer'
             }
         </script>
     </div>

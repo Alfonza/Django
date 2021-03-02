@@ -1,16 +1,76 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <table>
-            <tr><th><h2>ID</h2></th><th><h2>NAME</h2></th><th><h2>EMAIL</h2></th><th><h2>PASSWORD</h2></th><th><h2>SPECIALIZATION</h2></th><th><h2>PHONE</h2></th></tr>
-            
-                {% for doctor in doctors %}
-                <tr>
-                    {% for data in doctor %}
-                    <td>{{data}}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-        </table><br><br>
-    </body>
-</html>
+<table id="doctortable" class="hiddediv table table-bordred table-striped">
+                       
+    <thead>
+      
+      <th>ID</th>
+      <th> Name</th>
+       <th>Email</th>
+       <th>PASSWORD</th>
+       <th>PHONENUMBER</th>
+       <th>SPECIALIZATION</th>
+        <th>Edit</th>
+         <th>Delete</th>
+         <th><button onclick="add_new('addDoctor')">New</button></th>
+     </thead>
+     <tbody>
+      {% for doctor in doctors %}
+      <tr>
+      
+      
+      
+          {% for data in doctor %}
+          <td>{{data}}</td>
+          {% endfor %}
+      
+      <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+      <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" onclick="deleterowD({{doctor.0}})"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+      </tr>
+      {% endfor %}
+      
+   
+
+      </tbody>
+   </table>
+   
+  <div class="hiddediv" id="addDoctor" style="display: none;">
+    
+    Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addnameD" id="addnameD" required><br>
+    Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addpassworD" id="addpasswodrdD" required><br>
+    Email  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addemailD" id="addemailD" required><br>
+    Phonenumber &nbsp;<input name="addphoneD" id="addphoneD" required><br>
+    Specialist &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addspecialistD"  id="addspecialistD" required><br>
+    <button id="ajaxBtn">add</button>
+    
+<script>
+    $('#ajaxBtn').click(function(){
+        //console.log('ues')
+
+        name=document.getElementById('addnameD').value
+        //console.log('ues')
+        password=document.getElementById('addpasswodrdD').value
+       // console.log('ues')
+        email=document.getElementById('addemailD').value
+       // console.log('ues')
+        
+        phone=document.getElementById('addphoneD').value
+        //console.log('ues')
+        specialist=document.getElementById('addspecialistD').value
+        //console.log(name,password,email,phone,specialist);
+
+        $.post("adddoctordata",
+    {
+      "name": name,
+       "password":password,
+       "email":email,
+       "phone":phone,
+       "specialist":specialist
+    },
+    function(data, status){
+        console.log('u')
+       $('#table-responsive').load('adddoctordata',data)
+    });
+    
+});
+</script>
+
+  </div>

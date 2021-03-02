@@ -127,18 +127,16 @@ img{
     </div>
     <div id="viewmsg">
     <div id="listName">
-      <button id="msgdisplay">Ram</button>
-   
-    <hr>
+     
     {% for name in patientname%}
-    <button id="msgdisplay" onclick="displaymsg()" value="{{name}}">{{name}}</button>
+    <button id="msgdisplay" onclick="displaymsg()" value="{{name}}">{{name.0}}</button>
     <hr>
     {% endfor %}
     
 </div>
 
 <div id="msgbody" style="display: block;">
-    <h2>Dr.Name</h2>
+    <h2>patient.Name</h2>
 <div class="container">
   
   <p>Hello. How are you today?</p>

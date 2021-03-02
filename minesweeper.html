@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>minesweeper</title>
+</head>
+<style type="text/css">
+  table{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  td{
+height: 40px;
+width: 40px;
+background-color: grey;
+color: white;
+text-align: center;
+font-size: 22px;
+  }
+
+</style>
+<body>
+	<table id='main'>
+  </table>
+	<script type="text/javascript">
+	var no=0;
+  var arr=new Array(0);
+          
+			var array=new Array(9);
+    		for (var i=0;i<10;i++){
+        		array[i]=new Array(9);
+        		for(var j=0;j<10;j++){
+            		array[i][j]=0;
+        		}
+        	}
+          var bombno=0
+    		while(bombno<10){
+          //for (var z = 0; z <= 9; z++) {
+        		a=Math.floor(Math.random()*8);
+        		b=Math.floor(Math.random()*8);
+        		a=a+1;
+        		b=b+1;
+        		if (array[a][b]==-1)
+           		 continue;
+            bombno = bombno+1;
+        		array[a][b]=-1;
+        		if (array[a-1][b-1]!=-1)
+            		array[a-1][b-1]=array[a-1][b-1]+1;
+        	
+        		if (array[a][b-1]!=-1)
+           			 array[a][b-1]=array[a][b-1]+1;
+           			
+        		if (array[a+1][b-1]!=-1)
+            		array[a+1][b-1]=array[a+1][b-1]+1;
+        		
+        		if (array[a-1][b]!=-1)
+            		array[a-1][b]=array[a-1][b]+1;
+        		
+        		if (array[a+1][b]!=-1)
+            		array[a+1][b]=array[a+1][b]+1;
+        		
+        		if (array[a-1][b+1]!=-1)
+           			 array[a-1][b+1]=array[a-1][b+1]+1;
+           		
+        		if (array[a][b+1]!=-1)
+            		array[a][b+1]=array[a][b+1]+1;
+        		
+        		if (array[a+1][b+1]!=-1)
+            		array[a+1][b+1]=array[a+1][b+1]+1;
+        		
+            }
+    		
+ 
+function findregion(a,arr){
+          var str=String(a.parentElement.rowIndex)+String(a.cellIndex);
+          if(findstr(str,arr)==-1){
+  if(array[a.parentElement.rowIndex][a.cellIndex]==0){
+  a.style.backgroundColor="green";
+  no=no+1;
+  console.log(no);
+  console.log(arr);
+arr.push(str);
+if(a.previousSibling!=null)
+findregion(a.previousSibling,arr);
+
+if(a.nextSibling!=null)
+findregion(a.nextSibling,arr);
+ 
+if(a.parentElement.previousSibling!=null)
+findregion(a.parentElement.previousSibling.childNodes[a.cellIndex],arr);
+
+if(a.parentElement.nextSibling!=null)
+findregion(a.parentElement.nextSibling.childNodes[a.cellIndex],arr);
+}
+else{
+    var str=String(a.parentElement.rowIndex)+String(a.cellIndex);
+
+  if(findstr(str,arr)==-1){
+arr.push(str);
+  a.innerHTML=array[a.parentElement.rowIndex][a.cellIndex];
+  no=no+1;
+  console.log(no);
+}
+}
+}          
+}   
+function findstr(str,arr){
+  for(var k=0;k<arr.length;k++){
+    if(str==arr[k]){
+      return k;
+    }
+  }
+  return -1;
+}
+        	console.table(array);
+          table = document.getElementById('main');
+          for(var i=0;i<10;i++) {
+          row =table.insertRow(i);
+          for(var j=0;j<10;j++){
+          cell = row.insertCell(j);
+
+          cell.onclick=function(){
+          var x = this.parentElement.rowIndex; 
+          var y = this.cellIndex;
+          var content = array[x][y];
+          //console.log(content);
+          if(content==-1){
+            alert("failed");
+            document.location.reload();
+          }
+
+        if(content==0){
+          
+          findregion(this,arr);
+        }
+        if(content>0){
+                    var str=String(this.parentElement.rowIndex)+String(this.cellIndex);
+
+          if(findstr(str,arr)==-1){
+arr.push(str);
+console.log(arr);
+          this.innerHTML=content;
+          no=no+1;
+          console.log(no);
+        }
+        }
+        if(no>=90){
+          alert("u won");
+          document.location.reload();
+        }
+      }
+    }
+}
+  </script>
+</body>
+</html>

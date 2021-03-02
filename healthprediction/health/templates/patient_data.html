@@ -1,25 +1,68 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <table id="tableI">
-            <tr><th><h2>ID</h2></th><th><h2>NAME</h2></th><th><h2>EMAIL</h2></th><th><h2>PASSWORD</h2></th><th><h2>SCORE</h2></th><th><h2>STATUS</h2></th><th></th></tr>
-            
-                {% for patient in patients %}
-                <tr>
-                    {% for data in patient %}
-                    <td>{{data}}</td>
-                    
-                    {% endfor %}
-                    <th><button onclick="delete_row()">DELETE</button></th>
-                </tr>
-                {% endfor %}
-        </table><br><br>
-    </body>
-    <script>
-        function delete_row(){
-            table = document. getElementById("tableId"); 
-            row = table. rows[index]; 
-            console. log(row.ID);
-        }
-    </script>
-</html>
+<table id="patienttable" class="hiddediv table table-bordred table-striped">
+                     
+    <thead>
+      
+      <th>ID</th>
+      <th> Name</th>
+       <th>Email</th>
+       <th>PASSWORD</th>
+       <th>PHONENUMBER</th>
+       <th>STATUS</th>
+        <th>Edit</th>
+        
+         <th>Delete</th>
+         <th><button onclick="add_new('addPatient')">New</button></th>
+     </thead>
+     <tbody>
+      {% for patient in patients %}
+      <tr>
+     
+      
+      
+      {% for data in patient %}
+      <td>{{data}}</td>
+      
+      {% endfor %}
+      
+      <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button  class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onclick="editrow({{patient.0}})" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+      <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" onclick="deleterowP({{patient.0}})"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+      </tr>
+      {% endfor %}
+      
+   
+
+      </tbody>
+
+
+  </table>
+  <div class="hiddediv" id="addPatient"style="display: none;" >
+    Name         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addnameP"  id="addnameP" required><br>
+    Password     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addpasswordP"  id="addpasswordP" required><br>
+    Email        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="addemailP"  id="addemailP" required><br>
+    Phonenumber  &nbsp;<input name="addphoneP"  id="addphoneP" required><br><br>
+    <button onclick=sendP()>add</button>
+<script>
+    function sendP(){
+        name=document.getElementById('addnameP').value 
+        password=document.getElementById('addpasswordP').value 
+        email=document.getElementById('addemailP').value 
+        phone=document.getElementById('addphoneP').value 
+console.log(name,password,email,phone);
+        $.post("addpatientdata",
+    {
+      "name": name,
+       "password":password,
+       "email":email,
+       "phone":phone
+    },
+    function(data, status){
+       $('#table-responsive').load('addpatientdata',data)
+    });
+}
+function editrow(id){
+    
+}
+
+</script>
+</form>
+  </div>

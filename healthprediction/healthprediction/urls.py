@@ -24,6 +24,11 @@ urlpatterns = [
     path('doctordata',views.doc_data,name='doc_data'),
     path('patientdata',views.patient_data,name='patient_data'),
     path('feedback',views.feedback,name='feedback'),
+    path('deleterowofP',views.deleterowofP,name='deleterowofP'),
+    path('deleterowofD',views.deleterowofD,name='deleterowofD'),
+    path('deleterowofF',views.deleterowofF,name='deleterowofF'),
+    path('addpatientdata',views.addpatientdata,name='addpatientdata'),
+     path('adddoctordata',views.adddoctordata,name='adddoctordata'),
     #path('delpat',views.delpatient,name='delpatient'),
     path('patient',views.patient,name='patient'),
     path('doctor',views.doctor,name='doctor'),
@@ -42,5 +47,9 @@ urlpatterns = [
     path('updatepatient',views.updatepatient,name='updatepatient'),
     
     path('updatestatuspatient',views.updatestatuspatient,name='updatestatuspatient'),
+    path('patientfeedback',views.patientfeedback,name='patientfeedback'),
+    path('addfeedback',views.addfeedback,name='addfeedback'),
+    path('questionanswer',views.questionanswer,name='questionanswer'),
+    
    
 ]
