@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
     body{
-        background-color: black;
+        background-color: rgb(11, 12, 12);
     }
       
     #main{
@@ -24,14 +24,7 @@
         width: 100%;
         height: 411%;
     }
-    a{
-        
-        color: rgb(231, 19, 19);
-        border-radius: 5px;
-        height: 30px;
-        width: 60px;
-        font-weight: 30px;
-    }
+    
     a:hover{
         color: rgb(29, 23, 23);
         font-weight: 30px;
@@ -45,37 +38,55 @@
         #doctor{
             position: relative;
             left: 1200px;
-            top: -140px;
+            top: -180px;
             
         }
         #patient{
             position: relative;
             left: 1000px;
-            top: -130px;
+            top: -150px;
 
         }
+        #adm,#patient,#doctor{
+            position: relative;
+           
+            border-radius: 5px;
+            height: 30px;
+            width: 60px;
+            font-weight: 30px;
+            font-weight: bold;
+            font-size: large;
+           
+            
+        }
+       
         
         
     
 </style>
-<body style=background-image:url({% static 'img/Teeth-in-a-day.jpg' %})>
+<body >
     <div id="main">
-        <img src="{% static 'img/Teeth-in-a-day.jpg' %}" alt="My image">
+        <img src="{% static 'img/Teeth-in-a-day.jpg' %}" alt="My image2"> 
     </div>
-    <div id="admin_user">
-        <div>
+    
+        
+        <div id="adm">
+           
+            <a href="admin">ADMIN</a>
             
         </div>
-        <div id="adm">
-            <a href="admin">ADMIN</a>
-        </div>
+  
         <div id="patient">
+            
             <a href="patient">PATIENT</a>
+            
         </div>
         <div id="doctor">
+            
             <a href="doctor">DOCTOR</a>
+            
         </div>
-    </div>
+  
    
     
         
